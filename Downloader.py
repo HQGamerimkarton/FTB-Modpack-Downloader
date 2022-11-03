@@ -56,7 +56,7 @@ for i in range(130):
                     pass
         index += 1
 
-print(matches)
+print(f"Downloaded: {matches}")
 print(f"Not Downloaded: {not_downloaded}")
 
 
