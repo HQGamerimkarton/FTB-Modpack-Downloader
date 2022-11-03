@@ -11,7 +11,7 @@ def use_regex(input_text):
     return pattern
 
 
-path = r"ADD FILEPATH THE FILES SHOULD BE STORED"
+path = r"ADD_YOUR_DOWNLOAD_PATH"
 index = 1
 matches = []
 not_downloaded = []
@@ -49,7 +49,8 @@ for i in range(130):
                         os.mkdir(fr"{path}\{title}\{version.get_text()}")
 
                     time.sleep(0.2)
-                    wget.download(i, fr"{path}\{title}\{version.get_text()}\{title}.exe")
+                    file_id = [file_id for file_id in soup.find_all("div", {"class": "Badge_value__wvYgo"})][0].get_text()
+                    wget.download(i, fr"{path}\{title}\{version.get_text()}\serverinstall_{index}_{file_id}.exe")
                 except ValueError or FileExistsError:
                     not_downloaded.append(i)
                     pass
