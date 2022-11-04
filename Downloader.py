@@ -11,7 +11,7 @@ def use_regex(input_text):
     return pattern
 
 
-path = r"ADD_YOUR_DOWNLOAD_PATH"
+path = r"C:\Users\Marvi\Downloads\servers"
 index = 1
 matches = []
 not_downloaded = []
@@ -51,7 +51,7 @@ for i in range(130):
                     time.sleep(0.2)
                     file_id = [file_id for file_id in soup.find_all("div", {"class": "Badge_value__wvYgo"})][0].get_text()
                     download_path = fr"{path}\{title}\{version.get_text()}\serverinstall_{index}_{file_id}.exe"
-                    if not os.path.isfile(path):
+                    if not os.path.isfile(download_path):
                         wget.download(i, download_path)
                 except ValueError or FileExistsError:
                     not_downloaded.append(i)
