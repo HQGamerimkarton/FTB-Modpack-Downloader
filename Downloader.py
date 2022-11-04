@@ -11,7 +11,7 @@ def use_regex(input_text):
     return pattern
 
 
-path = r"C:\Users\Marvi\Downloads\servers"
+path = r"ADD_YOUR_DOWNLOAD_PATH"
 index = 1
 matches = []
 not_downloaded = []
