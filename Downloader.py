@@ -50,7 +50,9 @@ for i in range(130):
 
                     time.sleep(0.2)
                     file_id = [file_id for file_id in soup.find_all("div", {"class": "Badge_value__wvYgo"})][0].get_text()
-                    wget.download(i, fr"{path}\{title}\{version.get_text()}\serverinstall_{index}_{file_id}.exe")
+                    download_path = fr"{path}\{title}\{version.get_text()}\serverinstall_{index}_{file_id}.exe"
+                    if not os.path.isfile(path):
+                        wget.download(i, download_path)
                 except ValueError or FileExistsError:
                     not_downloaded.append(i)
                     pass
